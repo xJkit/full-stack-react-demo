@@ -1,10 +1,14 @@
-const express = require('express');
-const app = express();
+const path = require('path');
+const fs = require('fs');
 
-app.get('*', (req, res) => {
-  res.send('Hello, Express!');
-});
-
-app.listen(3000, () => {
-  console.log('express is running at port 3000...')
-})
+fs.readFile(
+  path.resolve(__dirname, '.babelrc'),
+  'utf8',
+  (err, babelConfig) => {
+    if (err) {
+      throw new Error('readFile error: ', err);
+    }
+    require('@babel/register')(JSON.parse(babelConfig));
+    require('./app');
+  }
+)
