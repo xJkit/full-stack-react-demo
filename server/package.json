@@ -5,12 +5,18 @@
   "license": "MIT",
   "dependencies": {
     "client": "0.1.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
+    "@babel/polyfill": "^7.4.4",
     "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.5.5",
+    "ignore-styles": "^5.0.1",
+    "morgan": "^1.9.1",
     "nodemon": "^1.19.1"
   },
   "scripts": {

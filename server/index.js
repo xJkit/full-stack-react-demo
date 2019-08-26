@@ -8,7 +8,11 @@ fs.readFile(
     if (err) {
       throw new Error('readFile error: ', err);
     }
-    require('@babel/register')(JSON.parse(babelConfig));
+    require('ignore-styles');
+    require('@babel/polyfill');
+    require('@babel/register')(Object.assign({}, JSON.parse(babelConfig), {
+      ignore: [/(node_modules)/],
+    }));
     require('./app');
   }
 )
